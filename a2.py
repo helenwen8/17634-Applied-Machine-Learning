@@ -5,7 +5,7 @@ import numpy as np
 
 from sklearn.model_selection import train_test_split 
 from sklearn.linear_model import LinearRegression 
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, r2_score
 
 
 data = pd.read_csv('music_education_dataset_new.csv')
@@ -79,7 +79,7 @@ def part2():
 
     predictions = linRgr.predict(X_test) 
 
-    r2 =  mean_squared_error(y_test, predictions)
+    r2 =  r2_score(y_test, predictions)
 
     plt.figure(figsize=(8,6))
     plt.scatter(y_test, predictions, alpha=0.7, color='blue')
@@ -121,6 +121,6 @@ def part3():
     plt.show()
 
 
-EDA()
-# part2()
+# EDA()
+part2()
 # part3()
